@@ -1,0 +1,2 @@
+https://api-shein.shein.com/h5/productInfo/shopping-policy
+https://api-shein.shein.com/h5/productInfo/size-guide
