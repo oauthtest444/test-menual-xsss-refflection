@@ -25,7 +25,7 @@ jobs:
 
           # === Run script_counter.py Tools ===
           if [ -s data/usefull-path-urls-1.txt ]; then
-            python tools/script_counter.py -l data/usefull-path-urls-1.txt -l xss_results.txt -o script_stats.txt; cat script_stats.txt
+            python tools/script_counter.py -l data/usefull-path-urls-1.txt -o script_stats.txt; cat script_stats.txt
 
           fi
 
