@@ -1,7 +1,4 @@
 https://inclient.store.office.com/gyro/clientstore/details/WA104380862
 https://store.office.com/anonymousserviceextension.aspx
 https://store.office.com/appinfo/query
-https://store.office.com/gyro/client
-https://store.office.com/gyro/clientstore
-https://store.office.com/wlid/expirecookie.aspx
 https://store.office.com/worldwide.aspx
