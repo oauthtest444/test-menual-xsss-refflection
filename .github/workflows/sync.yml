@@ -23,27 +23,35 @@ jobs:
       - name: Process Task
         run: |
 
-          # === Run script_counter.py Tools ===
+          # === Run script_counter.py Tool ===
           if [ -s data/usefull-path-urls-1.txt ]; then
-            python tools/script_counter.py -l data/usefull-path-urls-1.txt -o script_stats.txt; cat script_stats.txt
+            python tools/script_counter.py \
+              -l data/usefull-path-urls-1.txt \
+              -o script_stats.txt
 
-          fi
-
-          
-          # === Run XSS Reflection Tools ===
-          if [ -s data/usefull-path-urls-1.txt ]; then
-            python tools/xss_reflect_checker.py -l data/usefull-path-urls-1.txt -p data/fuzz-params-list.txt
-
+            cat script_stats.txt
           fi
 
 
+          # === Run XSS Reflection Tool ===
+          if [ -s data/usefull-path-urls-1.txt ]; then
 
-          
+            python tools/xss_reflect_checker.py \
+              -l data/usefull-path-urls-1.txt \
+              -p data/fuzz-params-list.txt
 
-          # === Commit updated target list ===
+            # === Clear all scanned routes after successful scan ===
+            : > data/usefull-path-urls-1.txt
+
+          fi
+
+
+          # === Commit updated files ===
           git config --global user.name "system"
           git config --global user.email "system@noreply.github.com"
+
           git add data/list.txt
+          git add data/usefull-path-urls-1.txt
 
           if ! git diff --cached --quiet; then
             git commit -m "chore: sync update" -q
